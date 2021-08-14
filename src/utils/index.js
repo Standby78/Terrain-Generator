@@ -6,3 +6,5 @@ export * from './generateEcosystem';
 export * from './getMap';
 export * from './generateHumidityMap';
 export * from './drawTerrain';
+export * from './drawPathObstacles';
+export * from './createRiverPath';

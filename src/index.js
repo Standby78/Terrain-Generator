@@ -1,6 +1,6 @@
-import { generateEcosystem, generateHumidityMap, getMap, drawTerrain, drawTerrainMinimap, drawHumidityMinimap, drawMap } from './utils';
+import { generateEcosystem, generateHumidityMap, getMap, drawTerrain, drawTerrainMinimap, drawHumidityMinimap, drawMap, createRiverPath } from './utils';
 
-import { WIDTH, HEIGHT } from './constants';
+import { WIDTH, HEIGHT, RIVER_QUANTITY } from './constants';
 
 const canvas = document.getElementById('terrainMinimap');
 
@@ -9,12 +9,24 @@ const player = { playerX: WIDTH / 2, playerY: HEIGHT / 2 };
 let mapArray = [];
 
 mapArray = getMap();
+
+// add rivers to map
+for (let counter = 0; counter < RIVER_QUANTITY; counter++) {
+    const riverArray = createRiverPath(mapArray);
+    for (let index = riverArray.length - 1; index > 0; index--) {
+        const tile = riverArray[index];
+        const mapIndex = tile[0] + tile[1] * WIDTH;
+        if (mapArray[mapIndex] === 0) break;
+        mapArray[mapIndex] = 0;
+    }
+}
+
 const humidityArray = generateHumidityMap(mapArray);
 const ecosystemArray = generateEcosystem(humidityArray);
 
 // draw minimap overlays
 drawTerrainMinimap(mapArray);
-drawHumidityMinimap(humidityArray);
+// drawHumidityMinimap(humidityArray);
 
 drawTerrain(player);
 // draw main map
