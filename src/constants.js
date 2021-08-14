@@ -36,6 +36,7 @@ export const TEMP_CHANGE_PER_DEGRE = 0.15;
 export const HUMIDITY_ON_SEA = 1;
 export const MAX_HUMIDITY = 220;
 export const HUMIDITY_LEVELS = 4;
+export const RIVER_QUANTITY = 20;
 
 export const terrain = [
     {
