@@ -16,8 +16,8 @@ for (let counter = 0; counter < RIVER_QUANTITY; counter++) {
     for (let index = riverArray.length - 1; index > 0; index--) {
         const tile = riverArray[index];
         const mapIndex = tile[0] + tile[1] * WIDTH;
-        if (mapArray[mapIndex] === 0) break;
-        mapArray[mapIndex] = 0;
+        if (mapArray[mapIndex] === 4 || mapArray[mapIndex] === 0) break;
+        mapArray[mapIndex] = 4;
     }
 }
 
@@ -34,8 +34,8 @@ drawMap(player, mapArray, ecosystemArray);
 
 const drawClickedRegion = (canvas, event) => {
     const rect = canvas.getBoundingClientRect();
-    player.playerX = event.clientX - rect.left;
-    player.playerY = event.clientY - rect.top;
+    player.playerX = Math.floor(event.clientX - rect.left);
+    player.playerY = Math.floor(event.clientY - rect.top);
     drawMap(player, mapArray, ecosystemArray);
 };
 

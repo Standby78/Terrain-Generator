@@ -33,8 +33,27 @@ const createRiverPath = (terrainArray) => {
     } while (riverLength > 250);
 
     const gridPath = finder.findPath(startOfRiver.x, startOfRiver.y, endOfRiver.x, endOfRiver.y, sceneMapGrid);
-    // drawPathObstacles(flatTerrain, gridPath);
-    return gridPath;
+    // connect adjecent rivers
+    let newLength = 0;
+    for (let index = gridPath.length - 1; index > 0; index--) {
+        const tile = gridPath[index];
+        const mapIndex = tile[0] + tile[1] * WIDTH;
+        if (
+            terrainArray[mapIndex] === 4 ||
+            terrainArray[mapIndex] === 0 ||
+            terrainArray[mapIndex + 1] === 4 ||
+            terrainArray[mapIndex + 1] === 0 ||
+            terrainArray[mapIndex - 1] === 4 ||
+            terrainArray[mapIndex - 1] === 0 ||
+            terrainArray[mapIndex - WIDTH] === 4 ||
+            terrainArray[mapIndex - WIDTH] === 0 ||
+            terrainArray[mapIndex + WIDTH] === 4 ||
+            terrainArray[mapIndex + WIDTH] === 0
+        )
+            break;
+        newLength++;
+    }
+    return gridPath.slice(gridPath.length - newLength - 2, gridPath.length);
 };
 
 export { createRiverPath };

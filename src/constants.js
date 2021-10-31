@@ -31,7 +31,7 @@ export const WIDTH = 512;
 export const HEIGHT = 512;
 export const GEOGRAPHY_ELEMENTS = 4;
 export const TILE_SIZE = 64;
-export const MAP_OFFSET = 6;
+export const MAP_OFFSET = 5;
 export const TEMP_CHANGE_PER_DEGRE = 0.15;
 export const HUMIDITY_ON_SEA = 1;
 export const MAX_HUMIDITY = 220;
@@ -110,5 +110,23 @@ export const terrain = [
         31: desertMountain,
         32: steppeMountain,
         33: plainMountain,
+    },
+    {
+        '00': frozenSea,
+        '01': frozenSea,
+        '02': frozenSea,
+        '03': frozenSea,
+        10: sea,
+        11: sea,
+        12: sea,
+        13: sea,
+        20: sea,
+        21: sea,
+        22: sea,
+        23: sea,
+        30: sea,
+        31: sea,
+        32: sea,
+        33: sea,
     },
 ];
