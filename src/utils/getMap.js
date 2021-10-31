@@ -15,7 +15,7 @@ const getMap = () => {
             let y = ((simplex.noise2D(x * 0.007, z * 0.005) + 1) / 3) * 255 + 30;
             let terrainMapY = Math.floor((simplex.noise2D(x * 0.02, z * 0.02) * 255) / (255 / GEOGRAPHY_ELEMENTS));
             terrainMapY = terrainMapY <= 0 ? 255 / GEOGRAPHY_ELEMENTS : terrainMapY * (255 / GEOGRAPHY_ELEMENTS);
-            // circle
+            // circle that levels the map to the sea level towards the edges
             const circley = (Math.floor(Math.sqrt((cx - x) * (cx - x) + (cy - z) * (cy - z))) / maxDist) * 255;
             y = y - circley < 10 ? 0 : y - circley;
             y = y !== 0 ? terrainMapY : y;

@@ -1,4 +1,4 @@
-import { generateEcosystem, generateHumidityMap, getMap, drawTerrain, drawTerrainMinimap, drawHumidityMinimap, drawMap, createRiverPath } from './utils';
+import { generateEcosystem, generateHumidityMap, getMap, drawTerrain, drawTerrainMinimap, drawMap, createRiverPath } from './utils';
 
 import { WIDTH, HEIGHT, RIVER_QUANTITY } from './constants';
 

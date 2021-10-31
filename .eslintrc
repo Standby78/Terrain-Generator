@@ -3,25 +3,12 @@
         "browser": true,
         "node": true
     },
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
     "extends": [
-        "airbnb"
-
-    ],
+        "eslint:recommended"],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
         "no-param-reassign": 0,
         "no-shadow": 0,
